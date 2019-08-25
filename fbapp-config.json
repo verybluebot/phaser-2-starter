@@ -1,0 +1,24 @@
+{
+  "instant_games": {
+    "custom_update_templates": {
+      "get_crystals": {
+        "example": "Player need more skulls can you help?"
+      },
+      "got_recruited": {
+        "example": "Player need more skulls can you help?"
+      },
+      "already_recruited": {
+        "example": "Player need more skulls can you help?"
+      },
+      "ask_help": {
+        "example": "Player need your help my friend"
+      },
+      "thank_for_help": {
+        "example": "Player helped you friend"
+      }
+    },
+    "orientation": "LANDSCAPE",
+    "navigation_menu_version": "NAV_BAR",
+    "bot": {"subscription_type": "OPT_IN_PUBLIC"}
+  }
+}

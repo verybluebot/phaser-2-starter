@@ -1,0 +1,85 @@
+{
+  "name": "StaterGame",
+  "version": "1.0.0",
+  "description": "Starter Game",
+  "author": "Shugo Studios <www.shugostudios.com>",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start-fb": "webpack",
+    "start-mobile": "webpack --config webpack.mobile.dev.config.js",
+    "bundle-mobile-staging": "webpack --config webpack.cordova.staging.js",
+    "bundle-mobile-production": "webpack --config webpack.cordova.production.js",
+    "build-android": "cordova build android",
+    "build-ios": "cordova build ios -buildFlag=\"-UseModernBuildSystem=0\"",
+    "emulate-android": "cordova emulate android",
+    "emulate-ios": "cordova emulate ios",
+    "test": "eslint './src/**/*.js'",
+    "android-run": "npm run bundle-mobile-staging && npm run build-android && cordova run android && npm run android-debug",
+    "android-apk": "npm run bundle-mobile-staging && make run",
+    "android-debug": "adb logcat chromium:I *:S",
+    "serve-facebook-staging": "http-server ./staging --ssl -c-1 -p 8080 -a 127.0.0.1",
+    "serve-facebook-production": "http-server ./production --ssl -c-1 -p 8080 -a 127.0.0.1",
+    "serve-facebook-dev": "http-server --ssl -c-1 -p 8080 -a 127.0.0.1",
+    "build-facebook-staging": "webpack --config webpack.staging.config.js",
+    "build-facebook-production": "webpack --config webpack.production.config.js"
+  },
+  "license": "Shogo Studios",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.1.2",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.21.0",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.6.0",
+    "cordova": "^8.0.0",
+    "eslint": "^4.14.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "expose-loader": "^0.7.4",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.10.0",
+    "cordova-plugin-whitelist": "^1.3.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cordova-android": "^7.1.4",
+    "cordova-browser": "^5.0.2",
+    "cordova-ios": "^4.5.4",
+    "cordova-launch-review": "^3.1.1",
+    "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-inapppurchase": "^1.2.0",
+    "cordova-plugin-x-socialsharing": "^5.4.4",
+    "easystarjs": "^0.4.3",
+    "es6-promise-plugin": "^4.2.2",
+    "moment": "^2.22.2",
+    "phaser-ce": "^2.13.2",
+    "webfontloader": "^1.6.28"
+  },
+  "cordova": {
+    "platforms": [
+      "android",
+      "browser",
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-admob-free": {
+        "ADMOB_APP_ID": "ca-app-pub-7431364171147168~5699283857"
+      },
+      "cordova-admob-mobfox": {},
+      "cordova-plugin-x-socialsharing": {
+        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+      },
+      "cordova-plugin-device": {},
+      "cordova-launch-review": {},
+      "cordova-plugin-inapppurchase": {}
+    }
+  }
+}

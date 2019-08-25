@@ -1,0 +1,20 @@
+node_modules/
+www/
+platforms/
+plugins/
+dist/
+.vscode/
+*.log
+/index.html
+build/
+
+mytestbuild.apk
+
+*.pem
+staging/
+production/
+iosCerts/
+androidCerts/
+
+# this is just too big..
+TowerDefenseAssets/

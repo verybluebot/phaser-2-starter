@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.shugostudios.starter" version="0.9.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Started Game</name>
+    <description>
+    </description>
+    <author email="eli@shugostudios.com" href="">
+        Shugo Studios
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <config-file parent="GADApplicationIdentifier" target="*-Info.plist">
+            <string>ca-app-pub-7431364171147168~5699283857</string>
+        </config-file>
+        <config-file parent="UILaunchStoryboardName" target="*-Info.plist">
+            <string>CDVLaunchScreen</string>
+        </config-file>
+    </platform>
+    <preference name="Fullscreen" value="true" />
+    <preference name="orientation" value="landscape" />
+    <preference name="android-minSdkVersion" value="28" />
+    <preference name="android-targetSdkVersion" value="28" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <engine name="android" spec="^7.1.4" />
+    <engine name="browser" spec="^5.0.2" />
+    <engine name="ios" spec="^4.5.4" />
+</widget>

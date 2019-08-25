@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "import/no-unresolved": [2],
+    "semi": [2, "always"],
+    "indent": ["error", 4]
+  },
+  "globals": {
+    "phaser": true,
+    "FBInstant": true,
+    "inAppPurchase": true,
+    "GAME_ENV": true,
+    "FB_AD_STAGING_PLACEMENT_ID": true,
+    "FB_AD_STAGING_PLACEMENT_INTENTIONS_ID": true,
+    "IAP_ANDROID_REMOVE_ADS": true,
+    "IAP_ANDROID_SKULLS_SMALL": true,
+    "IAP_ANDROID_SKULLS_MEDIUM": true,
+    "IAP_ANDROID_SKULLS_HUGE": true
+  },
+  "settings": {
+    "import/core-modules": ["phaser", "pixi", "p2"]
+  }
+}
