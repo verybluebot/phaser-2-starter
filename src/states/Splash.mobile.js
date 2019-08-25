@@ -14,6 +14,9 @@ export default class extends Phaser.State {
         EventListener.init();
 
         console.log('this shit is on mobile????');
+        Game.init(this.game);
+
+        this.state.start('StartScreen');
 
         this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
     }
@@ -23,13 +26,8 @@ export default class extends Phaser.State {
             // Player.startLoading();
 
             Game.init(this.game);
+            this.state.start('StartScreen');
 
-            // get Player hash
-            return Player.updateSignedHash()
-                .then(() => {
-                    this.state.start('StartScreen');
-                })
-                .catch(err => console.log(err));
         }
     }
 

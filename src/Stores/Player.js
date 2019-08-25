@@ -16,46 +16,17 @@ class PlayerStore {
         return PlayerStore.instance;
     }
 
-    init (name, fbID, fbAvatarUrl, removeAdsObj) {
-        if (this._player.fbID) return Promise.resolve();
-        // get player data from DB
-        this._stats.loadingData = true;
+    init (name, id, fbAvatarUrl, removeAdsObj) {
+        if (this._player.id) return Promise.resolve();
+
         // modifiy to fit ios response
         if (removeAdsObj) {
             removeAdsObj.platform = isIOS() ? 'ios' : 'android';
         }
 
         // TODO: need to check if user is new. If new need to try pull all of this purchees
-        return UserAPI.initUser(name, fbID, fbAvatarUrl, removeAdsObj)
+        return UserAPI.postApi(name, id, fbAvatarUrl, removeAdsObj)
             .then(({ player, reward, newToken }) => {
-                this._stats.loadingData = false;
-
-                this._player.mobileID = player.mobileID;
-                this._player.fbID = player.fbID;
-                this._player.patform = player.platform;
-                this._player.name = player.name;
-                this._player.isRemovedAds = player.isRemovedAds;
-                this._player.fbAvatarUrl = player.fbAvatarUrl;
-                this._player.towers = player.towers;
-                this._player.spells = player.spells;
-                this._player.levels = player.levels;
-                this._player.enemies = player.enemies;
-                this._player.currentGold = player.currentGold;
-                this._player.maxSpell = player.maxSpell;
-                this._player.adsRemain = player.adsRemain;
-                this._player.isTutorialWatched = player.isTutorialWatched;
-                this._player.isTutorialInGameWatched = player.isTutorialInGameWatched;
-                this._player.isTutorialUpgradeWatched = player.isTutorialUpgradeWatched;
-                this._player.noAdsLeftDate = player.noAdsLeftDate;
-                this._player.numPlays = player.numPlays;
-                this._player.isFTUEDone = player.isFTUEDone;
-                this._player.dailyRewards = player.dailyRewards;
-
-                // set new token if exists - for cross devices removed ads users
-                if (newToken) {
-                    setPlayerHash(newToken);
-                    UserAPI.setHash(newToken);
-                }
 
                 // return if there is a reward
                 return Promise.resolve(reward);

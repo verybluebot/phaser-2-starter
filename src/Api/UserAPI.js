@@ -30,6 +30,8 @@ class UserAPI {
     }
 
     postApi (data) {
+        return Promise.resolve()
+
         return axios.post(connection.urls().serverUrl + '/api/post-api?' + this.getHashParam(), { data }, {headers: this._headers})
             .then(res => {
                 if (!res.data) {

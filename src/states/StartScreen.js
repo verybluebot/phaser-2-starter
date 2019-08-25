@@ -41,8 +41,7 @@ export default class StartScreen extends Phaser.State {
 
     preload () {
         // start loading thingy
-        this.loadingIcon = Loading.startLoadingIcon(Game.getGame(), Game.getGame().world.centerX, Game.getGame().world.centerY);
-        this.loadingIcon.scale.set(0.8);
+        // this.loadingIcon = Loading.startLoadingIcon(Game.getGame(), Game.getGame().world.centerX, Game.getGame().world.centerY);
 
         InAppPurchases.initIAPIds();
 
@@ -67,14 +66,14 @@ export default class StartScreen extends Phaser.State {
             })
             .then(removeAdsObj => Player.init(getPlayerName(), getPlayerID(), getPlayerPhoto(), removeAdsObj))
             .then(reward => {
-                this.loadingIcon.destroy();
-                this.loadingIcon = null;
+                // this.loadingIcon.destroy();
+                // this.loadingIcon = null;
 
                 this.preloadGame(reward);
             })
             .catch(err => {
                 console.log(`Failed fucking INIT player on start:`, err);
-                this.loadingIcon.destroy();
+                // this.loadingIcon.destroy();
 
                 if (!this.isFirstFail) return;
 
@@ -130,7 +129,6 @@ export default class StartScreen extends Phaser.State {
         this.worldScale = masterScale();
 
         // stop all tickers if were tickers working
-        Ticker.clearAll();
         this.game.world.resize(FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT);
         this.game.camera.reset();
 
@@ -145,13 +143,18 @@ export default class StartScreen extends Phaser.State {
         this.game.world.setBounds(0, 0, FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT);
 
         // lazy load top icons
-        LoaderManager.loadStartScreenTop(this.game)
-            .then(() => {
-            });
-
 
         // main pop up group
         this.popUpGroup = this.game.add.group();
+
+        this.fuckText();
+    }
+
+    fuckText () {
+        console.log('fuck text')
+        const testText = this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'fuck dis', this.style);
+        testText.anchor.set(0.5);
+        this.game.world.addChild(testText);
     }
 
     update () {
