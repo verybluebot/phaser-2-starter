@@ -37,7 +37,7 @@ class StoresReview {
             appId = '1463412164';
             break;
         case 'android':
-            appId = 'io.shugostudios.sketchwars';
+            appId = 'io.shugostudios.starter';
             break;
         }
 
