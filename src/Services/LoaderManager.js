@@ -60,7 +60,7 @@ class LoaderManger {
     }
 
     loadImageByName (imageName) {
-        return this._loadOneImageAsset(imageName, `assets/images/images/${imageName}`);
+        return this._loadOneImageAsset(imageName, `assets/images/images/${imageName}.png`);
     }
 
     // helpers

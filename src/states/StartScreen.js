@@ -32,6 +32,9 @@ import { SOUND_FX_BUTTON_CLICK } from '../Services/SoundFXManager';
 import { Player, Game, Device } from '../Stores';
 import { AdsService } from '../Handlers';
 
+// sprites
+import { Dude } from '../sprites';
+
 export default class StartScreen extends Phaser.State {
     init (data) {
         this.comeBackData = data || {};
@@ -147,14 +150,22 @@ export default class StartScreen extends Phaser.State {
         // main pop up group
         this.popUpGroup = this.game.add.group();
 
-        this.fuckText();
+        LoaderManager.loadImageByName('dude').then(() => {
+            this.renderDude();
+        });
     }
 
-    fuckText () {
-        console.log('fuck text');
-        const testText = this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'fuck dis', this.style);
-        testText.anchor.set(0.5);
-        this.game.world.addChild(testText);
+    renderDude () {
+        console.log('rendering dude');
+
+        const dude = new Dude({
+            game: this.game,
+            x: this.game.world.centerX,
+            y: this.game.world.centerY,
+            asset: 'dude'
+        });
+
+        this.game.world.addChild(dude);
     }
 
     update () {

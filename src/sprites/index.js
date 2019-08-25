@@ -1,3 +1,3 @@
-import Template from './Template';
+import Dude from './Dude/Dude';
 
-export { Template };
+export { Dude };
