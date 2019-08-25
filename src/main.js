@@ -11,9 +11,6 @@ import Phaser from 'phaser';  // working phaser version before update "^2.10.5";
 
 import BootState from './states/Boot';
 import SplashState from './states/Splash.facebook';
-import {
-    Level1
-} from './states/Levels';
 import StartScreen from './states/StartScreen';
 import { isAndroid, isIOS } from './Handlers/MainHandler';
 import { Device } from './Stores';
@@ -47,9 +44,6 @@ class Game extends Phaser.Game {
 
         this.state.add('Boot', BootState, false);
         this.state.add('Splash', SplashState, false);
-
-        this.state.add('Level1', Level1, false);
-
 
         this.state.add('StartScreen', StartScreen, false);
 

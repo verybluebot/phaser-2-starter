@@ -16,7 +16,6 @@ export default class extends Phaser.State {
         console.log('this shit is on mobile????');
 
         this.load.onLoadComplete.addOnce(this.onLoadComplete, this);
-        LoaderManager.loadInit(this);
     }
 
     update () {
