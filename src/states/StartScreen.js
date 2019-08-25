@@ -26,7 +26,7 @@ import {
 
 } from '../Handlers/MainHandler';
 
-import { LoaderManager, MusicManager, Ticker, SoundFXManager, InAppPurchases } from '../Services';
+import { LoaderManager, MusicManager, SoundFXManager, InAppPurchases } from '../Services';
 import { SOUND_FX_BUTTON_CLICK } from '../Services/SoundFXManager';
 
 import { Player, Game, Device } from '../Stores';
@@ -151,7 +151,7 @@ export default class StartScreen extends Phaser.State {
     }
 
     fuckText () {
-        console.log('fuck text')
+        console.log('fuck text');
         const testText = this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'fuck dis', this.style);
         testText.anchor.set(0.5);
         this.game.world.addChild(testText);

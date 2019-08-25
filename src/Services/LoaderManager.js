@@ -59,15 +59,19 @@ class LoaderManger {
         });
     }
 
-
     loadImageByName (imageName) {
+        return this._loadOneImageAsset(imageName, `assets/images/images/${imageName}`);
+    }
+
+    // helpers
+    _loadOneImageAsset (imageName, path) {
         return new Promise((resolve, reject) => {
             const loader = new Phaser.Loader(Game.getGame());
             if (Game.getGame().cache && Game.getGame().cache.checkImageKey(imageName)) {
                 return resolve();
             }
 
-            loader.image(imageName, `assets/images/images/${imageName}`);
+            loader.image(imageName, path);
             if (!loader.onLoadComplete) return reject(new Error(`Failed getting assets for loading image name ${imageName}, no loader created`));
 
             loader.onLoadComplete.addOnce(() => resolve());
